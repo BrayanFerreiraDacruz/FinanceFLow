@@ -1,0 +1,14 @@
+<form method="POST" style="margin-bottom: 30px; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);">
+    <h2>Informar Saldo e Despesas Manualmente</h2>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 200px;">
+            <label for="saldo_informado">Saldo Atual:</label>
+            <input type="number" name="saldo_informado" step="0.01" value="{{ saldo_informado or 0 }}" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+        </div>
+        <div style="flex: 1; min-width: 200px;">
+            <label for="despesas_informadas">Despesas Manuais:</label>
+            <input type="number" name="despesas_informadas" step="0.01" value="{{ despesas_informadas or 0 }}" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+        </div>
+    </div>
+    <button type="submit" style="margin-top: 15px; background-color: #1e88e5; color: white; padding: 10px 20px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Salvar Valores</button>
+</form>

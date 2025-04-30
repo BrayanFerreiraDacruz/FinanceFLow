@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - FinanceFlow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #4F46E5;
+      --bg: #f4f6f9;
+      --white: #ffffff;
+      --gray: #9ca3af;
+      --text: #1f2937;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body.login-body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .login-container {
+      background-color: var(--white);
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      animation: slideUp 0.8s ease;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+
+    form input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    form input:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+    }
+
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: var(--primary);
+      color: var(--white);
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #4338ca;
+    }
+
+    .cadastro {
+      margin-top: 1rem;
+      color: var(--gray);
+    }
+
+    .cadastro a {
+      color: var(--primary);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .cadastro a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .login-container {
+        margin: 1rem;
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body class="login-body">
+  <div class="login-container">
+    <h2>Entrar na sua conta</h2>
+    <form action="/login" method="POST">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="senha" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+      <p class="cadastro">Não tem conta? <a href="{{ url_for('routes.register') }}">Cadastre-se</a></p>
+    </form>
+  </div>
+</body>
+</html>

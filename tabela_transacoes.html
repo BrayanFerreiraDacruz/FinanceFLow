@@ -1,0 +1,29 @@
+<div class="transacoes">
+    <h2>Últimas Transações</h2>
+    <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: #f5f5f5;">
+                <th style="padding: 10px; border-bottom: 1px solid #ccc;">Data</th>
+                <th style="padding: 10px; border-bottom: 1px solid #ccc;">Descrição</th>
+                <th style="padding: 10px; border-bottom: 1px solid #ccc;">Tipo</th>
+                <th style="padding: 10px; border-bottom: 1px solid #ccc;">Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in transacoes %}
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">{{ t.data.strftime('%d/%m/%Y') }}</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">{{ t.descricao }}</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">{{ t.tipo.capitalize() }}</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;" style="color: {{ '#43a047' if t.tipo == 'receita' else '#e53935' }}">
+                        {{ '+' if t.tipo == 'receita' else '-' }} R$ {{ '%.2f' | format(t.valor) }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4" style="padding: 10px; text-align: center;">Nenhuma transação registrada.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

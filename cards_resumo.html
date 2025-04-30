@@ -1,0 +1,22 @@
+<div class="resumo" style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px;">
+    <div class="card receita" style="flex: 1; background: #e8f5e9; padding: 20px; border-radius: 12px;">
+        <h2>Receitas</h2>
+        <p>R$ {{ '%.2f' | format(total_entradas) }}</p>
+    </div>
+    <div class="card despesa" style="flex: 1; background: #ffebee; padding: 20px; border-radius: 12px;">
+        <h2>Despesas</h2>
+        <p>R$ {{ '%.2f' | format(total_saidas) }}</p>
+    </div>
+    <div class="card saldo" style="flex: 1; background: #e3f2fd; padding: 20px; border-radius: 12px;">
+        <h2>Saldo Total</h2>
+        <p>R$ {{ '%.2f' | format(saldo_total) }}</p>
+    </div>
+    <div class="card saldo" style="flex: 1; background: #fff3e0; padding: 20px; border-radius: 12px;">
+        <h2>Saldo Informado</h2>
+        <p>R$ {{ '%.2f' | format(saldo_informado or 0) }}</p>
+    </div>
+    <div class="card despesa" style="flex: 1; background: #f3e5f5; padding: 20px; border-radius: 12px;">
+        <h2>Despesas Informadas</h2>
+        <p>R$ {{ '%.2f' | format(despesas_informadas or 0) }}</p>
+    </div>
+</div>

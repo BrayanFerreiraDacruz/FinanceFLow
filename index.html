@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>FinanceFlow - Início</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --bg: #f4f6f9;
+            --primary: #4F46E5;
+            --text: #1f2937;
+            --white: #ffffff;
+            --gray: #9ca3af;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            background-color: var(--primary);
+            padding: 1rem 2rem;
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px var(--shadow);
+            animation: fadeInDown 1s ease;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--white);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        main {
+            padding: 2rem;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 30px var(--shadow);
+            text-align: center;
+            max-width: 900px;
+            margin: 3rem auto;
+            transition: transform 0.4s ease;
+        }
+
+        .hero:hover {
+            transform: translateY(-5px);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .buttons a {
+            padding: 0.9rem 2rem;
+            border-radius: 9999px;
+            background-color: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .buttons a:hover {
+            background-color: #4338ca;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--gray);
+            animation: fadeIn 2s ease;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .buttons {
+                flex-direction: column;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FinanceFlow</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('routes.dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('routes.login') }}">Login</a></li>
+                <li><a href="{{ url_for('routes.register') }}">Registrar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="hero">
+            <h2>Controle suas finanças de forma simples e eficaz</h2>
+            <p>Com o FinanceFlow, você tem uma visão clara dos seus ganhos, gastos e metas financeiras.</p>
+            <div class="buttons">
+                <a href="{{ url_for('routes.register') }}">Começar agora</a>
+                <a href="{{ url_for('routes.login') }}">Já tenho conta</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Feito por Brayan Ferreira da Cruz</p>
+    </footer>
+
+    <script>
+        // Fade suave ao carregar a página
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
