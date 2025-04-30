@@ -1,10 +1,3 @@
-# FinanceFLow
-📦 Descrição do repositório (pra colocar no GitHub): 💸 Aplicativo web de controle financeiro pessoal feito com Flask, SQLite e Chart.js. Permite login, cadastro, visualização de transações, modo escuro, exportação em PDF e muito mais.
-Fechou, Brayan! Aqui vai uma sugestão massa de **descrição do repositório** e um **README.md completo** pro teu projeto **FinanceFlow**. Tudo bem organizado, bonitão e com aquele toque profissional mas direto ao ponto:
-
----
-
-
 
 > 💸 Aplicativo web de controle financeiro pessoal feito com Flask, SQLite e Chart.js. Permite login, cadastro, visualização de transações, modo escuro, exportação em PDF e muito mais.
 
